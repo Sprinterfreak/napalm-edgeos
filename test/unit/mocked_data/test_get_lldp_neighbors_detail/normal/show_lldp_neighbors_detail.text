@@ -1,0 +1,41 @@
+-------------------------------------------------------------------------------
+LLDP neighbors:
+-------------------------------------------------------------------------------
+Interface:    itf0, via: LLDP, RID: 1, Time: 4 days, 04:46:13
+  Chassis:     
+    ChassisID:    mac 50:f7:22:01:01:00
+    SysName:      cisco.switch
+    SysDescr:     Cisco IOS Software, C2960L Software (C2960L-UNIVERSALK9-M), Version 15.2(5c)E, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2016 by Cisco Systems, Inc.
+Compiled Tue 18-Oct-16 23:59 by prod_rel_team
+    MgmtIP:       10.0.0.3
+    Capability:   Bridge, on
+    Capability:   Router, off
+  Port:        
+    PortID:       ifname Gi0/25
+    PortDescr:    GigabitEthernet0/25
+    PMD autoneg:  supported: no, enabled: yes
+      Adv:          100Base-X, HD: no, FD: yes
+      MAU oper type: 1000BaseSXFD - Fiber over short-wavelength laser, full duplex mode
+  VLAN:         1, pvid: yes
+-------------------------------------------------------------------------------
+Interface:    eth5, via: LLDP, RID: 1, Time: 4 days, 04:46:13
+  Chassis:     
+    ChassisID:    mac 50:f7:22:01:01:00
+    SysName:      cisco.switch
+    SysDescr:     Cisco IOS Software, C2960L Software (C2960L-UNIVERSALK9-M), Version 15.2(5c)E, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2016 by Cisco Systems, Inc.
+Compiled Tue 18-Oct-16 23:59 by prod_rel_team
+    MgmtIP:       10.0.0.3
+    Capability:   Bridge, on
+    Capability:   Router, off
+  Port:        
+    PortID:       ifname Gi0/25
+    PortDescr:    GigabitEthernet0/25
+    PMD autoneg:  supported: no, enabled: yes
+      Adv:          100Base-X, HD: no, FD: yes
+      MAU oper type: 1000BaseSXFD - Fiber over short-wavelength laser, full duplex mode
+  VLAN:         1, pvid: yes
+-------------------------------------------------------------------------------
