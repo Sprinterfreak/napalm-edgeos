@@ -648,9 +648,6 @@ class EdgeOSDriver(NetworkDriver):
             neigh['remote_port'] = nb_data.group('portid')
             neigh['remote_port_description'] = nb_data.group('portdescr')
 
-            nb_data = re.search(r' +MgmtIP: +(\S+)', neigh['raw'])
-            neigh['remote_address'] = [nb_data.group(1)]
-
             nb_data = list(re.finditer(caps_pattern, neigh['raw']))
             if nb_data:
                 neigh['remote_system_capab'] = [
