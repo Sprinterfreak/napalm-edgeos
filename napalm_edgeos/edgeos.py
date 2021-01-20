@@ -632,10 +632,11 @@ class EdgeOSDriver(NetworkDriver):
 
         n_pattern = r'''(?s) +ChassisID: +mac +(?P<chassisid>\S+)
  +SysName: +(?P<sysname>\S+)
- +SysDescr: +(?P<sysdescr>.+)(?!\n )
-.+?
- +PortID: +ifname +(?P<portid>\S+)
- +PortDescr: +(?P<portdescr>\S+)'''
+ +SysDescr: +(?P<sysdescr>.+?)
+ .+?
+ +PortID: +(?P<porttype>mac|ifname) +(?P<portid>\S+)
+ +PortDescr: +(?P<portdescr>.+?)
+ .+?'''
         caps_pattern = r' +Capability: +(?P<capab>\S+)(?:, +(?P<state>\S+))?\n'
 
         for neigh in neighbor_data:
@@ -645,8 +646,15 @@ class EdgeOSDriver(NetworkDriver):
             neigh['remote_chassis_id'] = nb_data.group('chassisid')
             neigh['remote_system_name'] = nb_data.group('sysname')
             neigh['remote_system_description'] = nb_data.group('sysdescr')
-            neigh['remote_port'] = nb_data.group('portid')
-            neigh['remote_port_description'] = nb_data.group('portdescr')
+
+            # Neighbors with PortID type mac tend to have ifname in PortDescr
+            if nb_data.group('porttype') == 'mac':
+                neigh['remote_port'] = nb_data.group('portdescr')
+                neigh['remote_port_description'] = nb_data.group('portid')
+            else:
+                neigh['remote_port'] = nb_data.group('portid')
+                neigh['remote_port_description'] = nb_data.group('portdescr')
+
 
             nb_data = list(re.finditer(caps_pattern, neigh['raw']))
             if nb_data:
